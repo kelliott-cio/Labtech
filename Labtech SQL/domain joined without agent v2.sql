@@ -16,7 +16,6 @@ c.ComputerID IN (SELECT ComputerID FROM Tcomp);
 
 
 
-
 Update the two references to `AgentID=145914` to match your actual monitor ID.
 
 

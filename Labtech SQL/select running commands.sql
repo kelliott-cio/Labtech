@@ -1,0 +1,1 @@
+SELECT * FROM commands WHERE STATUS='2'
