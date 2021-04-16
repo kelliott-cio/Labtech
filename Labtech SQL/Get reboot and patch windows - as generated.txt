@@ -1,0 +1,139 @@
+SELECT 
+   computers.computerid as `Computer Id`,
+   computers.name as `Computer Name`,
+   clients.name as `Client Name`,
+   computers.domain as `Computer Domain`,
+   computers.username as `Computer User`,
+   IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned3.Value,edfDefault3.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned4.Value,edfDefault4.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned5.Value,edfDefault5.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned6.Value,edfDefault6.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned7.Value,edfDefault7.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned8.Value,edfDefault8.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+   IFNULL(IFNULL(edfAssigned9.Value,edfDefault9.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned10.Value,edfDefault10.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned11.Value,edfDefault11.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned12.Value,edfDefault12.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned13.Value,edfDefault13.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned14.Value,edfDefault14.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned15.Value,edfDefault15.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned16.Value,edfDefault16.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned17.Value,edfDefault17.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned18.Value,edfDefault18.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned19.Value,edfDefault19.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned20.Value,edfDefault20.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned21.Value,edfDefault21.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned22.Value,edfDefault22.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned23.Value,edfDefault23.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned24.Value,edfDefault24.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned25.Value,edfDefault25.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned26.Value,edfDefault26.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned27.Value,edfDefault27.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned28.Value,edfDefault28.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned29.Value,edfDefault29.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned30.Value,edfDefault30.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned31.Value,edfDefault31.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned32.Value,edfDefault32.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned33.Value,edfDefault33.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned34.Value,edfDefault34.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned35.Value,edfDefault35.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IFNULL(IFNULL(edfAssigned36.Value,edfDefault36.value),'') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+   IF(INSTR(computers.os, 'server')>0, 1, 0) as `Computer.OS.IsServer`,
+   IFNULL(IFNULL(edfAssigned37.Value,edfDefault37.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server No Patching`,
+   IFNULL(IFNULL(edfAssigned38.Value,edfDefault38.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Patch Create Reboot Ticket`,
+   IFNULL(IFNULL(edfAssigned39.Value,edfDefault39.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unattended Reboot Allowed Fri 12a-5a`,
+   IFNULL(IFNULL(edfAssigned40.Value,edfDefault40.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unattended Reboot Allowed Sat 12a-5a`,
+   IFNULL(IFNULL(edfAssigned41.Value,edfDefault41.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unattended Reboot Allowed Sun 10p-5a`,
+   IFNULL(IFNULL(edfAssigned42.Value,edfDefault42.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unmanaged`
+FROM Computers 
+LEFT JOIN inv_operatingsystem ON (Computers.ComputerId=inv_operatingsystem.ComputerId)
+LEFT JOIN Clients ON (Computers.ClientId=Clients.ClientId)
+LEFT JOIN Locations ON (Computers.LocationId=Locations.LocationID)
+LEFT JOIN ExtraFieldData edfAssigned1 ON (edfAssigned1.id=Computers.ComputerId and edfAssigned1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault1 ON (edfDefault1.id=0 and edfDefault1.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned2 ON (edfAssigned2.id=Computers.ComputerId and edfAssigned2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault2 ON (edfDefault2.id=0 and edfDefault2.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned3 ON (edfAssigned3.id=Computers.ComputerId and edfAssigned3.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault3 ON (edfDefault3.id=0 and edfDefault3.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned4 ON (edfAssigned4.id=Computers.ComputerId and edfAssigned4.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault4 ON (edfDefault4.id=0 and edfDefault4.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned5 ON (edfAssigned5.id=Computers.ComputerId and edfAssigned5.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault5 ON (edfDefault5.id=0 and edfDefault5.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned6 ON (edfAssigned6.id=Computers.ComputerId and edfAssigned6.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault6 ON (edfDefault6.id=0 and edfDefault6.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned7 ON (edfAssigned7.id=Computers.ComputerId and edfAssigned7.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault7 ON (edfDefault7.id=0 and edfDefault7.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned8 ON (edfAssigned8.id=Computers.ComputerId and edfAssigned8.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault8 ON (edfDefault8.id=0 and edfDefault8.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned9 ON (edfAssigned9.id=Computers.ComputerId and edfAssigned9.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault9 ON (edfDefault9.id=0 and edfDefault9.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned10 ON (edfAssigned10.id=Computers.ComputerId and edfAssigned10.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault10 ON (edfDefault10.id=0 and edfDefault10.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned11 ON (edfAssigned11.id=Computers.ComputerId and edfAssigned11.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault11 ON (edfDefault11.id=0 and edfDefault11.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned12 ON (edfAssigned12.id=Computers.ComputerId and edfAssigned12.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault12 ON (edfDefault12.id=0 and edfDefault12.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned13 ON (edfAssigned13.id=Computers.ComputerId and edfAssigned13.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault13 ON (edfDefault13.id=0 and edfDefault13.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned14 ON (edfAssigned14.id=Computers.ComputerId and edfAssigned14.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault14 ON (edfDefault14.id=0 and edfDefault14.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned15 ON (edfAssigned15.id=Computers.ComputerId and edfAssigned15.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault15 ON (edfDefault15.id=0 and edfDefault15.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned16 ON (edfAssigned16.id=Computers.ComputerId and edfAssigned16.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault16 ON (edfDefault16.id=0 and edfDefault16.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned17 ON (edfAssigned17.id=Computers.ComputerId and edfAssigned17.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault17 ON (edfDefault17.id=0 and edfDefault17.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned18 ON (edfAssigned18.id=Computers.ComputerId and edfAssigned18.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault18 ON (edfDefault18.id=0 and edfDefault18.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned19 ON (edfAssigned19.id=Computers.ComputerId and edfAssigned19.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault19 ON (edfDefault19.id=0 and edfDefault19.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned20 ON (edfAssigned20.id=Computers.ComputerId and edfAssigned20.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault20 ON (edfDefault20.id=0 and edfDefault20.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned21 ON (edfAssigned21.id=Computers.ComputerId and edfAssigned21.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault21 ON (edfDefault21.id=0 and edfDefault21.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned22 ON (edfAssigned22.id=Computers.ComputerId and edfAssigned22.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault22 ON (edfDefault22.id=0 and edfDefault22.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned23 ON (edfAssigned23.id=Computers.ComputerId and edfAssigned23.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault23 ON (edfDefault23.id=0 and edfDefault23.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned24 ON (edfAssigned24.id=Computers.ComputerId and edfAssigned24.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault24 ON (edfDefault24.id=0 and edfDefault24.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned25 ON (edfAssigned25.id=Computers.ComputerId and edfAssigned25.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault25 ON (edfDefault25.id=0 and edfDefault25.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned26 ON (edfAssigned26.id=Computers.ComputerId and edfAssigned26.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault26 ON (edfDefault26.id=0 and edfDefault26.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned27 ON (edfAssigned27.id=Computers.ComputerId and edfAssigned27.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault27 ON (edfDefault27.id=0 and edfDefault27.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned28 ON (edfAssigned28.id=Computers.ComputerId and edfAssigned28.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault28 ON (edfDefault28.id=0 and edfDefault28.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned29 ON (edfAssigned29.id=Computers.ComputerId and edfAssigned29.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault29 ON (edfDefault29.id=0 and edfDefault29.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned30 ON (edfAssigned30.id=Computers.ComputerId and edfAssigned30.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault30 ON (edfDefault30.id=0 and edfDefault30.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned31 ON (edfAssigned31.id=Computers.ComputerId and edfAssigned31.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault31 ON (edfDefault31.id=0 and edfDefault31.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned32 ON (edfAssigned32.id=Computers.ComputerId and edfAssigned32.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault32 ON (edfDefault32.id=0 and edfDefault32.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned33 ON (edfAssigned33.id=Computers.ComputerId and edfAssigned33.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault33 ON (edfDefault33.id=0 and edfDefault33.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned34 ON (edfAssigned34.id=Computers.ComputerId and edfAssigned34.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault34 ON (edfDefault34.id=0 and edfDefault34.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned35 ON (edfAssigned35.id=Computers.ComputerId and edfAssigned35.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault35 ON (edfDefault35.id=0 and edfDefault35.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned36 ON (edfAssigned36.id=Computers.ComputerId and edfAssigned36.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault36 ON (edfDefault36.id=0 and edfDefault36.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned37 ON (edfAssigned37.id=Computers.ComputerId and edfAssigned37.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='3eaa1462-9214-44a4-a2bb-a85b74a4c2b8'))
+LEFT JOIN ExtraFieldData edfDefault37 ON (edfDefault37.id=0 and edfDefault37.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='3eaa1462-9214-44a4-a2bb-a85b74a4c2b8'))
+LEFT JOIN ExtraFieldData edfAssigned38 ON (edfAssigned38.id=Computers.ComputerId and edfAssigned38.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='d198d6b3-e77b-406c-a82e-1308e7b66189'))
+LEFT JOIN ExtraFieldData edfDefault38 ON (edfDefault38.id=0 and edfDefault38.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='d198d6b3-e77b-406c-a82e-1308e7b66189'))
+LEFT JOIN ExtraFieldData edfAssigned39 ON (edfAssigned39.id=Computers.ComputerId and edfAssigned39.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='3777ee2a-7d67-49e7-8d76-353fa105eabb'))
+LEFT JOIN ExtraFieldData edfDefault39 ON (edfDefault39.id=0 and edfDefault39.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='3777ee2a-7d67-49e7-8d76-353fa105eabb'))
+LEFT JOIN ExtraFieldData edfAssigned40 ON (edfAssigned40.id=Computers.ComputerId and edfAssigned40.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='59ea21aa-2789-4df6-98fc-3b76ad9103d6'))
+LEFT JOIN ExtraFieldData edfDefault40 ON (edfDefault40.id=0 and edfDefault40.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='59ea21aa-2789-4df6-98fc-3b76ad9103d6'))
+LEFT JOIN ExtraFieldData edfAssigned41 ON (edfAssigned41.id=Computers.ComputerId and edfAssigned41.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='c6892fa1-71c0-4de4-a260-d04a0f10fb89'))
+LEFT JOIN ExtraFieldData edfDefault41 ON (edfDefault41.id=0 and edfDefault41.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='c6892fa1-71c0-4de4-a260-d04a0f10fb89'))
+LEFT JOIN ExtraFieldData edfAssigned42 ON (edfAssigned42.id=Computers.ComputerId and edfAssigned42.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='99558f38-0c22-4926-934a-c3b79c18a146'))
+LEFT JOIN ExtraFieldData edfDefault42 ON (edfDefault42.id=0 and edfDefault42.ExtraFieldId =(Select ExtraField.id FROM ExtraField WHERE LTGuid='99558f38-0c22-4926-934a-c3b79c18a146'))
+ WHERE 
+((((((((IFNULL(IFNULL(edfAssigned1.Value,edfDefault1.value),'') = 'Daily') OR (IFNULL(IFNULL(edfAssigned2.Value,edfDefault2.value),'') = 'Sunday') OR (IFNULL(IFNULL(edfAssigned3.Value,edfDefault3.value),'') = 'Monday') OR (IFNULL(IFNULL(edfAssigned4.Value,edfDefault4.value),'') = 'Tuesday') OR (IFNULL(IFNULL(edfAssigned5.Value,edfDefault5.value),'') = 'Wednesday') OR (IFNULL(IFNULL(edfAssigned6.Value,edfDefault6.value),'') = 'Thursday') OR (IFNULL(IFNULL(edfAssigned7.Value,edfDefault7.value),'') = 'Friday') OR (IFNULL(IFNULL(edfAssigned8.Value,edfDefault8.value),'') = 'Saturday'))) AND (((IFNULL(IFNULL(edfAssigned9.Value,edfDefault9.value),'') = '2300') OR (IFNULL(IFNULL(edfAssigned10.Value,edfDefault10.value),'') = '2315') OR (IFNULL(IFNULL(edfAssigned11.Value,edfDefault11.value),'') = '2330') OR (IFNULL(IFNULL(edfAssigned12.Value,edfDefault12.value),'') = '2345') OR (IFNULL(IFNULL(edfAssigned13.Value,edfDefault13.value),'') = '0000') OR (IFNULL(IFNULL(edfAssigned14.Value,edfDefault14.value),'') = '0115') OR (IFNULL(IFNULL(edfAssigned15.Value,edfDefault15.value),'') = '0130') OR (IFNULL(IFNULL(edfAssigned16.Value,edfDefault16.value),'') = '0145') OR (IFNULL(IFNULL(edfAssigned17.Value,edfDefault17.value),'') = '0200') OR (IFNULL(IFNULL(edfAssigned18.Value,edfDefault18.value),'') = '0215') OR (IFNULL(IFNULL(edfAssigned19.Value,edfDefault19.value),'') = '0230') OR (IFNULL(IFNULL(edfAssigned20.Value,edfDefault20.value),'') = '0245') OR (IFNULL(IFNULL(edfAssigned21.Value,edfDefault21.value),'') = '0300') OR (IFNULL(IFNULL(edfAssigned22.Value,edfDefault22.value),'') = '0315') OR (IFNULL(IFNULL(edfAssigned23.Value,edfDefault23.value),'') = '0330') OR (IFNULL(IFNULL(edfAssigned24.Value,edfDefault24.value),'') = '0345') OR (IFNULL(IFNULL(edfAssigned25.Value,edfDefault25.value),'') = '0400') OR (IFNULL(IFNULL(edfAssigned26.Value,edfDefault26.value),'') = '0415') OR (IFNULL(IFNULL(edfAssigned27.Value,edfDefault27.value),'') = '0430') OR (IFNULL(IFNULL(edfAssigned28.Value,edfDefault28.value),'') = '0445') OR (IFNULL(IFNULL(edfAssigned29.Value,edfDefault29.value),'') = '0500') OR (IFNULL(IFNULL(edfAssigned30.Value,edfDefault30.value),'') = '0515') OR (IFNULL(IFNULL(edfAssigned31.Value,edfDefault31.value),'') = '0530') OR (IFNULL(IFNULL(edfAssigned32.Value,edfDefault32.value),'') = '0545') OR (IFNULL(IFNULL(edfAssigned33.Value,edfDefault33.value),'') = '0015') OR (IFNULL(IFNULL(edfAssigned34.Value,edfDefault34.value),'') = '0030') OR (IFNULL(IFNULL(edfAssigned35.Value,edfDefault35.value),'') = '0045') OR (IFNULL(IFNULL(edfAssigned36.Value,edfDefault36.value),'') = '0100'))) AND (IF(INSTR(computers.os, 'server')>0, 1, 0)<>0))) OR (((IF(INSTR(computers.os, 'server')>0, 1, 0)<>0) AND (((IFNULL(IFNULL(edfAssigned37.Value,edfDefault37.value),'0')<>0) OR (IFNULL(IFNULL(edfAssigned38.Value,edfDefault38.value),'0')<>0) OR (IFNULL(IFNULL(edfAssigned39.Value,edfDefault39.value),'0')<>0) OR (IFNULL(IFNULL(edfAssigned40.Value,edfDefault40.value),'0')<>0) OR (IFNULL(IFNULL(edfAssigned41.Value,edfDefault41.value),'0')<>0) OR (IFNULL(IFNULL(edfAssigned42.Value,edfDefault42.value),'0')<>0))))))))

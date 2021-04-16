@@ -1,0 +1,125 @@
+SELECT
+  computers.computerid as `Computer Id`,
+  computers.name as `Computer Name`,
+  clients.name as `Client Name`,
+  computers.domain as `Computer Domain`,
+  computers.username as `Computer User`,
+  IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Day`,
+  IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value), '') as `Computer - Extra Data Field - CIO Server Patching - Scheduled Reboot Time`,
+  IFNULL(IFNULL(edfAssigned17.Value, edfDefault17.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server No Patching`,
+  IFNULL(IFNULL(edfAssigned18.Value, edfDefault18.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Patch Create Reboot Ticket`,
+  IFNULL(IFNULL(edfAssigned19.Value, edfDefault19.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unattended Reboot Allowed Fri 12a-5a`,
+  IFNULL(IFNULL(edfAssigned10.Value, edfDefault10.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unattended Reboot Allowed Sat 12a-5a`,
+  IFNULL(IFNULL(edfAssigned11.Value, edfDefault11.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unattended Reboot Allowed Sun 10p-5a`,
+  IFNULL(IFNULL(edfAssigned12.Value, edfDefault12.value),'0') as `Computer - Extra Data Field - CIO Server Patching - Server Unmanaged`
+FROM Computers
+LEFT JOIN inv_operatingsystem ON (Computers.ComputerId = inv_operatingsystem.ComputerId)
+LEFT JOIN Clients ON (Computers.ClientId = Clients.ClientId)
+LEFT JOIN Locations ON (Computers.LocationId = Locations.LocationID)
+LEFT JOIN ExtraFieldData edfAssigned1 ON (edfAssigned1.id = Computers.ComputerId and edfAssigned1.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = 'af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfDefault1 ON (edfDefault1.id = 0 and edfDefault1.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = 'af32d763-c2be-40d8-bbf2-a12eda073354'))
+LEFT JOIN ExtraFieldData edfAssigned9 ON (edfAssigned9.id = Computers.ComputerId and edfAssigned9.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfDefault9 ON (edfDefault9.id = 0 and edfDefault9.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '5dbe1b56-83e1-4812-9c87-ce8632aa6368'))
+LEFT JOIN ExtraFieldData edfAssigned17 ON (edfAssigned17.id = Computers.ComputerId and edfAssigned17.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '3eaa1462-9214-44a4-a2bb-a85b74a4c2b8'))
+LEFT JOIN ExtraFieldData edfDefault17 ON (edfDefault17.id = 0 and edfDefault17.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '3eaa1462-9214-44a4-a2bb-a85b74a4c2b8'))
+LEFT JOIN ExtraFieldData edfAssigned18 ON (edfAssigned18.id = Computers.ComputerId and edfAssigned18.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = 'd198d6b3-e77b-406c-a82e-1308e7b66189'))
+LEFT JOIN ExtraFieldData edfDefault18 ON (edfDefault18.id = 0 and edfDefault18.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = 'd198d6b3-e77b-406c-a82e-1308e7b66189'))
+LEFT JOIN ExtraFieldData edfAssigned19 ON (edfAssigned19.id = Computers.ComputerId and edfAssigned19.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '3777ee2a-7d67-49e7-8d76-353fa105eabb'))
+LEFT JOIN ExtraFieldData edfDefault19 ON (edfDefault19.id = 0 and edfDefault19.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '3777ee2a-7d67-49e7-8d76-353fa105eabb'))
+LEFT JOIN ExtraFieldData edfAssigned10 ON (edfAssigned10.id = Computers.ComputerId and edfAssigned10.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '59ea21aa-2789-4df6-98fc-3b76ad9103d6'))
+LEFT JOIN ExtraFieldData edfDefault10 ON (edfDefault10.id = 0 and edfDefault10.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '59ea21aa-2789-4df6-98fc-3b76ad9103d6'))
+LEFT JOIN ExtraFieldData edfAssigned11 ON (edfAssigned11.id = Computers.ComputerId and edfAssigned11.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = 'c6892fa1-71c0-4de4-a260-d04a0f10fb89'))
+LEFT JOIN ExtraFieldData edfDefault11 ON (edfDefault11.id = 0 and edfDefault11.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = 'c6892fa1-71c0-4de4-a260-d04a0f10fb89'))
+LEFT JOIN ExtraFieldData edfAssigned12 ON (edfAssigned12.id = Computers.ComputerId and edfAssigned12.ExtraFieldId =(
+      Select ExtraField.id 
+      FROM ExtraField
+      WHERE LTGuid = '99558f38-0c22-4926-934a-c3b79c18a146'))
+LEFT JOIN ExtraFieldData edfDefault12 ON (edfDefault12.id = 0 and edfDefault12.ExtraFieldId =(
+      Select ExtraField.id
+      FROM ExtraField
+      WHERE LTGuid = '99558f38-0c22-4926-934a-c3b79c18a146'))
+WHERE
+  ((((((((IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Daily')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Sunday')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Monday')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Tuesday')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Wednesday')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Thursday')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Friday')
+                OR (IFNULL(IFNULL(edfAssigned1.Value, edfDefault1.value), '') = 'Saturday')))
+            AND (((IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value), '') = '2300')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '2315')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '2330')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '2345')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0000')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0015')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0030')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0045') 
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0100')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0115')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0130')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0145')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0200')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0215')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0230')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0245')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0300')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0315')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0330')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0345')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0400')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0415')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0430')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0445')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0500')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0515')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0530')
+                OR (IFNULL(IFNULL(edfAssigned9.Value, edfDefault9.value),'') = '0545')))))
+        OR (IFNULL(IFNULL(edfAssigned17.Value, edfDefault17.value),'0') <> 0)
+        OR (IFNULL(IFNULL(edfAssigned18.Value, edfDefault18.value),'0') <> 0)
+        OR (IFNULL(IFNULL(edfAssigned19.Value, edfDefault19.value),'0') <> 0)
+        OR (IFNULL(IFNULL(edfAssigned10.Value, edfDefault10.value),'0') <> 0)
+        OR (IFNULL(IFNULL(edfAssigned11.Value, edfDefault11.value),'0') <> 0)
+        OR (IFNULL(IFNULL(edfAssigned12.Value, edfDefault12.value),'0') <> 0))))

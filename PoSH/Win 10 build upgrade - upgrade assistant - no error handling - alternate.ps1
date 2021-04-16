@@ -1,14 +1,18 @@
 $ErrorActionPreference = "SilentlyContinue"
-$dir = '@LocalPath@'
+$dir = '@SetupPath@'
 mkdir $dir
 $webClient = New-Object System.Net.WebClient
 $url = 'https://go.microsoft.com/fwlink/?LinkID=799445'
 $file = "$($dir)\Win10Upgrade.exe"
 $webClient.DownloadFile($url,$file)
-$install = Start-Process -FilePath $file -ArgumentList "/quietinstall /noreboot /skipeula /auto upgrade /copylogs $dir" -Wait -PassThru
+$install = Start-Process -FilePath $file -ArgumentList "/quietinstall /skipeula /auto upgrade /copylogs $dir" -Wait -PassThru
 $hex = "{0:x}" -f $install.ExitCode
 $exit_code = "0x$hex"
-
+​
+# Get latest compatibility report XML and list programs
+[xml]$compatreport = Get-ChildItem "$dir\Windows10UpgradeLogs\panther\compat*" | sort LastWriteTime | select -last 1 | Get-Content
+$incompatible_programs = $compatreport.Compatreport.Programs | % {$_.Program.Name}
+​
 # Convert hex code to human readable
 $message = Switch ($exit_code) {
    "0xC1900210" { "SUCCESS: No compatibility issues detected"; break } 
@@ -31,5 +35,5 @@ $message = Switch ($exit_code) {
    "0x0" { "SUCCESS: Upgrade started."; break }
    default { "WARNING: Unknown exit code."; break }
 }
-
+​
 Write-Output "$message (Code: $exit_code)"

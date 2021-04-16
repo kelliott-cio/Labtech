@@ -1,0 +1,45 @@
+<LabTech_Expansion
+	Version="200.141"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>800</ScriptId>
+				<FolderId>105</FolderId>
+				<ScriptName>Generate Agent InstallerToken</ScriptName>
+				<ScriptNotes>Creates an Installer Token, returns token in @InstallerToken@ variable.
+
+Parameters:
+TargetLocationID: LocationID for the installer. Default is the LocationID for this computer.
+TokenReason: Purpose for Token Creation. Default is "Script &lt;SCRIPTID&gt;"
+ValidityPeriod: Amount of time the token is valid, as X UNITs. (1 DAY, 2 MONTH, etc.) Default is 1 day. Only MINUTE,HOUR,DAY,WEEK,MONTH are supported.
+
+Darren White - Apex Technology Management - v1.2 - 20200624
+Created 20200619</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>1</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQqDMBCE74W+Qx7AkE0QNLIESv+gtJe29B7NCrlEiQbq2xelBXsaZme+hcGrbygMdLCjNficejISxaJ4T2HfpTBSNIBi5fD47n2cGTKn6J2dMnZJgZjUGVOggJVVnldQsN0NxaqMjyb6fnxRHHwX5q//h29+Tt6Z0lFRQw68VqC5lGS5bbXkANAoba0tXPvjFwDFest28wEczzbk2wAAAA==</LicenseData>
+				<ScriptData>H4sIAAAAAAAEAN1Zb2+iSBh/36TfYW4TA2ypAq21tdVCBVu6Cj0d7Da3dw3K2COLwgHe1sQPfwNFBQTa7bbJ2TfCM888M8Pv+T+e9Ueu6fii7uvN3R0Azp5oLyQwKT36rh5w2yayDA9Ulowb3dUnyEeu14S6+4D8jj3SfdOeyiIN7e9o2kO6Z0/pgW6ZhunPb5Br2sZZJSYXrXRp2UPdii39dIQBnoKXa7JnleRAYtblzDSaxwaqDZlDZn/IMSf7LIv0fX18wu4zDDPiTnRdrxnj5SqhQPillfinRsv1feSsDiaM/OgA0Vs03p5NQ1o2Al6MikPDpqDiUvRBij5M0dUYHrbrNxl83uAZjbXsqW9OZygYX71HPNXrmBMzFFm+Rhx5aqCpH6op4MbJOCRrFApg4YpgYbh8YJp82mB4wESGwSYxa34z9iIOl0Rvw+iiaQdvAir7fwSVYwowZdkcBPtSR2pBILcVrdMhu8JX0rJHZSvCzTQoOsZKMojSmioRFAV2d9o9tQvIaE1iU5EEEPogFgnwnJE9cWbY303jiduKaFmkAlKEeNmO1IbgWpWVlawX8PD2QFWCR3m9ZkOEMSohvNwqFA5FR+X19oHgevPT3Z33tCz247irrECpNxA6gE/Gch6sOCwQhbscA1xO+ubtYW/Gv+R5vSsrGpQWV6rWW2DJxa0kfVl0VQVeUTlKyUwjP6cSbpuc/bkIus6wfA7uf5Hnv/3B/xmbiSmq/DnP6tfzXoXuwTahWysKpZtIpKE9yMYwndGby5h8WIjc4TaFiuIklJeDwq1AyQufOJm8kw1W3xpJ9j09/OCkAMr6jYsc3UUhJNmw/mJBefRxzC6/9oGAlx4d0w2PBM0J8nx94jR6qqaIpChA6V4QRVKDrXsod6U+FLo3JEWnEx21x9AMhSuGqPBpqUpLgCQhT/FyloXcUEsNgu6ot1KP7IpVUtNkkaQoXEQtsg5A0FnnSkzGTRfS/BGeGp6zrfa6eM/1MbMWCGq2UaWEKqU7ULLqJbNe8kDJwbXbaZHLydMHFxkmVp33Kr+rbZPfFZtSNa+KWal67iBchLILPg0dnwOxIrwK1ONtApVlawWortxGUyD5mQJhF5F0Hg/cXkk9CaRdik8O8MTpz+XkJpMNfmaALc7TJ9sUMNlawdVEk8uLmPO9mlobwpk/bDtDrjrYu+ta3IOoXKsX6PGfMey3H67t6+/HjMdIqs39EKUJY/zeaLysIHquZ9quO45ChNmjHIRXfaVR32yf6USYqfOpqBPnB2ZbT3sHLXvSVB9ayGhAd4bozWzCbwzlha2S57tmEN28meWXXhbCmgOcMMfm0/d8QfNIqppU83b1xsVqzssXfAqJHJSf85CXAZrX2X4oQDNa3l8MN1vVsh4VJVhZ6Us9GNzHqBt5lUwO0LHbuVR4SYcL2KJT5reOL3TLRXiOcTGP3gIJWnOMaPDpLRikwEDoaFJ/d4fczOZ01h0iTWwEPoJeF75EVuXLE7j23XA6gmZxRZwIZASdrvb72kUf9mTl8l5WROkrqWEsyWA1LE2lZ1Pre8O3bcfY7boGKOpdtV4HfKp09CFEo78rInIsez7B5yjrnvN4nqrw0ibxCYxtFywvnkHGfwU/TMsCQwT+DZo0MMPQWCAjrQGsufL7qOrN7xleoKolHf1T9x/kjtuKuBsAAA==</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>8de7b040-b209-11ea-af91-000c29aaa7df</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters>TargetLocationID,TokenReason,ValidityPeriod</Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>105</FolderID>
+					<ParentID>0</ParentID>
+					<Name>__Examples</Name>
+					<GUID>3a28e85b-3064-4911-98cf-fd641ca4bc2b</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
